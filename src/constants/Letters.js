@@ -28,4 +28,6 @@ const letters = [
   { letter: "z" },
 ];
 
-export { letters };
+const lettersArray = letters.map(({ letter }) => letter);
+
+export { letters, lettersArray };

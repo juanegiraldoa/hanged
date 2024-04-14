@@ -19,17 +19,19 @@ const useWord = () => {
   };
 
   const selectLetter = (letter) => {
-    setLetters((prevLetters) => [...prevLetters, letter]);
-    let splitedWord = word.split("");
-    let splitedCensoredWord = censoredWord.split(" ");
-    const lettersInWord = splitedWord.filter((wl) => wl === letter);
-    lettersInWord.forEach(() => {
-      const letterIndex = splitedWord.findIndex((wl) => wl === letter);
-      splitedWord[letterIndex] = "_";
-      splitedCensoredWord[letterIndex] = letter;
-    });
-    if (lettersInWord.length === 0) setErrors(errors + 1);
-    setCensoredWord(splitedCensoredWord.join(" "));
+    if (!letters.find((l) => letter === l)) {
+      setLetters((prevLetters) => [...prevLetters, letter]);
+      let splitedWord = word.split("");
+      let splitedCensoredWord = censoredWord.split(" ");
+      const lettersInWord = splitedWord.filter((wl) => wl === letter);
+      lettersInWord.forEach(() => {
+        const letterIndex = splitedWord.findIndex((wl) => wl === letter);
+        splitedWord[letterIndex] = "_";
+        splitedCensoredWord[letterIndex] = letter;
+      });
+      if (lettersInWord.length === 0) setErrors(errors + 1);
+      setCensoredWord(splitedCensoredWord.join(" "));
+    }
   };
 
   return { word, nextWord, censoredWord, selectLetter, letters, errors };
