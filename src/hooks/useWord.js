@@ -15,6 +15,7 @@ const useWord = () => {
     setWord(selectedWord);
     setCensoredWord("_ ".repeat(selectedWord.length).trimEnd());
     setLetters([]);
+    setErrors(0);
   };
 
   const selectLetter = (letter) => {
