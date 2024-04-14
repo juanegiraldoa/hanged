@@ -28,27 +28,4 @@ const letras = [
   { letra: "z" },
 ];
 
-const palabras = [
-  "dia",
-  "subdirector",
-  "dice",
-  "ayudante",
-  "casualidad",
-  "usted",
-  "visto",
-  "alguna",
-  "vez",
-  "pinguino",
-  "despacho",
-  "director",
-  "cuando",
-  "llega",
-  "mandado",
-  "aqui",
-  "nunca",
-  "no",
-  "despedido",
-  "casa",
-];
-
 export { letras, palabras };
