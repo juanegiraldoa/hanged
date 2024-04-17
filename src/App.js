@@ -18,14 +18,18 @@ const App = () => {
   }, [selectLetter]);
 
   return (
-    <div style={{ width: "80%", margin: "80px auto" }}>
-      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", fontSize: "2rem" }}>
+    <div style={{ maxWidth: "700px", margin: "80px auto" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "2rem" }}>
         <Typography Element="h2">{censoredWord}</Typography>
         <Errors errorCounter={errors} />
       </div>
-
       <Board usedLetters={letters} selectLetter={selectLetter} />
-      <Button onClick={nextWord}>Next Palabra</Button>
+      <Button
+        style={{ width: "100%", margin: "10px 0px", padding: "10px", boxSizing: "border-box" }}
+        onClick={nextWord}
+      >
+        Next Palabra
+      </Button>
     </div>
   );
 };
