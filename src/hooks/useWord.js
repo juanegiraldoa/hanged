@@ -31,6 +31,7 @@ const useWord = () => {
       });
       if (lettersInWord.length === 0) setErrors(errors + 1);
       setCensoredWord(splitedCensoredWord.join(" "));
+      return splitedCensoredWord.some((l) => l !== "_");
     }
   };
 
