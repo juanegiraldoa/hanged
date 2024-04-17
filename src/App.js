@@ -4,6 +4,7 @@ import Button from "./components/atoms/Button";
 import Typography from "./components/atoms/Typography";
 import Board from "./components/templates/Board";
 import { lettersArray } from "./constants/Letters";
+import Errors from "./components/templates/Errors";
 
 const App = () => {
   const { nextWord, selectLetter, letters, censoredWord, errors } = useWord();
@@ -18,8 +19,10 @@ const App = () => {
 
   return (
     <div style={{ width: "80%", margin: "80px auto" }}>
-      <Typography Element="h2">{censoredWord}</Typography>
-      <Typography Element="h3">{errors}</Typography>
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", fontSize: "2rem" }}>
+        <Typography Element="h2">{censoredWord}</Typography>
+        <Errors errorCounter={errors} />
+      </div>
 
       <Board usedLetters={letters} selectLetter={selectLetter} />
       <Button onClick={nextWord}>Next Palabra</Button>
