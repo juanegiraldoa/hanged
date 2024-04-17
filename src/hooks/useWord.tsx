@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { words } from "../constants/Words";
 
 const useWord = () => {
-  const [word, setWord] = useState();
-  const [censoredWord, setCensoredWord] = useState();
-  const [letters, setLetters] = useState([]);
-  const [errors, setErrors] = useState(0);
+  const [word, setWord] = useState<string>();
+  const [censoredWord, setCensoredWord] = useState<string>();
+  const [letters, setLetters] = useState<string[]>([]);
+  const [errors, setErrors] = useState<number>(0);
   // const [usedWords, setUsedWords] = useState([]);
 
   useEffect(() => nextWord(), []);

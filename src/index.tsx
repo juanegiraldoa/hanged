@@ -1,12 +1,14 @@
-import { useEffect } from "react";
-import useWord from "./hooks/useWord";
-import Button from "./components/atoms/Button";
-import Typography from "./components/atoms/Typography";
-import Board from "./components/templates/Board";
+import { render } from "preact";
+import { useEffect } from "preact/hooks";
 import { lettersArray } from "./constants/Letters";
+import useWord from "./hooks/useWord";
+import Typography from "./components/atoms/Typography";
 import Errors from "./components/templates/Errors";
+import Board from "./components/templates/Board";
+import Button from "./components/atoms/Button";
+import "./index.css";
 
-const App = () => {
+export const App = () => {
   const { nextWord, selectLetter, letters, censoredWord, errors } = useWord();
 
   useEffect(() => {
@@ -34,4 +36,4 @@ const App = () => {
   );
 };
 
-export default App;
+render(<App />, document.getElementById("app"));

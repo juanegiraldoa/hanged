@@ -4,8 +4,9 @@ const useErrors = (errorCounter) => {
   const canvas = <canvas id="stickmanCanvas" width="200" height="215" />;
 
   useEffect(() => {
-    const canvas = document.getElementById("stickmanCanvas");
+    const canvas: any = document.getElementById("stickmanCanvas");
     const ctx = canvas.getContext("2d");
+
     const drawHead = () => {
       ctx.beginPath();
       ctx.arc(100, 50, 20, 0, Math.PI * 2);
