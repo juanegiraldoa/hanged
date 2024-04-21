@@ -1,49 +1,53 @@
 import { useEffect } from "react";
 
-const useErrors = (errorCounter) => {
+interface UseErrorsProps {
+  canvas: any;
+}
+
+const useErrors = (errorCounter: number): UseErrorsProps => {
   const canvas = <canvas id="stickmanCanvas" width="200" height="215" />;
 
   useEffect(() => {
     const canvas: any = document.getElementById("stickmanCanvas");
     const ctx = canvas.getContext("2d");
 
-    const drawHead = () => {
+    const drawHead = (): void => {
       ctx.beginPath();
       ctx.arc(100, 50, 20, 0, Math.PI * 2);
       ctx.stroke();
     };
 
-    const drawBody = () => {
+    const drawBody = (): void => {
       ctx.moveTo(100, 70);
       ctx.lineTo(100, 150);
       ctx.stroke();
     };
 
-    const drawLeftArm = () => {
+    const drawLeftArm = (): void => {
       ctx.moveTo(100, 80);
       ctx.lineTo(75, 100);
       ctx.stroke();
     };
 
-    const drawRigthArm = () => {
+    const drawRigthArm = (): void => {
       ctx.moveTo(100, 80);
       ctx.lineTo(125, 100);
       ctx.stroke();
     };
 
-    const drawLeftLeg = () => {
+    const drawLeftLeg = (): void => {
       ctx.moveTo(100, 150);
       ctx.lineTo(75, 200);
       ctx.stroke();
     };
 
-    const drawRigthLeg = () => {
+    const drawRigthLeg = (): void => {
       ctx.moveTo(100, 150);
       ctx.lineTo(125, 200);
       ctx.stroke();
     };
 
-    const clear = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const clear = (): void => ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (errorCounter === 0) clear();
     if (errorCounter === 1) drawHead();

@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { words } from "../constants/Words";
 
-const useWord = () => {
+interface useWordProps {
+  word: string;
+  nextWord: () => void;
+  censoredWord: string;
+  selectLetter: (letter: string) => boolean;
+  letters: string[];
+  errors: number;
+}
+
+const useWord = (): useWordProps => {
   const [word, setWord] = useState<string>();
   const [censoredWord, setCensoredWord] = useState<string>();
   const [letters, setLetters] = useState<string[]>([]);
@@ -18,7 +27,7 @@ const useWord = () => {
     setErrors(0);
   };
 
-  const selectLetter = (letter) => {
+  const selectLetter = (letter: string) => {
     if (!letters.find((l) => letter === l)) {
       setLetters((prevLetters) => [...prevLetters, letter]);
       let splitedWord = word.split("");
