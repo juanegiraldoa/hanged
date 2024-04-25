@@ -20,17 +20,14 @@ export const App = () => {
   }, [selectLetter]);
 
   return (
-    <div style={{ maxWidth: "700px", margin: "80px auto" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "2rem" }}>
+    <div className="game-container">
+      <div className="words-errors">
         <Typography Element="h2">{censoredWord}</Typography>
         <Errors errorCounter={errors} />
       </div>
       <Board usedLetters={letters} selectLetter={selectLetter} />
-      <Button
-        style={{ width: "100%", margin: "10px 0px", padding: "10px", boxSizing: "border-box" }}
-        onClick={nextWord}
-      >
-        Next Palabra
+      <Button className="next-word" onClick={nextWord}>
+        Next Word
       </Button>
     </div>
   );

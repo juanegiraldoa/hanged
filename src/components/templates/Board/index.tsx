@@ -8,11 +8,11 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ usedLetters = [], selectLetter }) => {
   return (
-    <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "5px" }}>
+    <div className="board">
       {letters.map(({ letter }, key) => (
         <Button
           key={key}
-          style={{ width: "50px", height: "50px" }}
+          className="letter-button"
           disabled={usedLetters.find((usedLetter) => usedLetter === letter)}
           onClick={() => selectLetter(letter)}
         >
