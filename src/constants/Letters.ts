@@ -1,4 +1,9 @@
-const letters = [
+type Letter = {
+  letter: string;
+  accent?: string;
+};
+
+const letters: Letter[] = [
   { letter: "a", accent: "á" },
   { letter: "b" },
   { letter: "c" },
@@ -28,6 +33,6 @@ const letters = [
   { letter: "z" },
 ];
 
-const lettersArray = letters.map(({ letter }) => letter);
+const lettersArray: string[] = letters.map(({ letter }) => letter);
 
 export { letters, lettersArray };

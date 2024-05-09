@@ -29,7 +29,7 @@ const useErrors = (errorCounter: number): UseErrorsProps => {
       ctx.stroke();
     };
 
-    const drawRigthArm = (): void => {
+    const drawRightArm = (): void => {
       ctx.moveTo(100, 80);
       ctx.lineTo(125, 100);
       ctx.stroke();
@@ -41,7 +41,7 @@ const useErrors = (errorCounter: number): UseErrorsProps => {
       ctx.stroke();
     };
 
-    const drawRigthLeg = (): void => {
+    const drawRightLeg = (): void => {
       ctx.moveTo(100, 150);
       ctx.lineTo(125, 200);
       ctx.stroke();
@@ -53,9 +53,9 @@ const useErrors = (errorCounter: number): UseErrorsProps => {
     if (errorCounter === 1) drawHead();
     if (errorCounter === 2) drawBody();
     if (errorCounter === 3) drawLeftArm();
-    if (errorCounter === 4) drawRigthArm();
+    if (errorCounter === 4) drawRightArm();
     if (errorCounter === 5) drawLeftLeg();
-    if (errorCounter === 6) drawRigthLeg();
+    if (errorCounter === 6) drawRightLeg();
   }, [errorCounter]);
 
   return { canvas };

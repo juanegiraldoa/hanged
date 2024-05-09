@@ -30,8 +30,8 @@ const useWord = (): useWordProps => {
   const selectLetter = (letter: string) => {
     if (!letters.find((l) => letter === l)) {
       setLetters((prevLetters) => [...prevLetters, letter]);
-      let splitedWord = word.split("");
-      let splitedCensoredWord = censoredWord.split(" ");
+      let splitedWord = word!.split("");
+      let splitedCensoredWord = censoredWord!.split(" ");
       const lettersInWord = splitedWord.filter((wl) => wl === letter);
       lettersInWord.forEach(() => {
         const letterIndex = splitedWord.findIndex((wl) => wl === letter);

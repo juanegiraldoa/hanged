@@ -3,6 +3,7 @@ import Typography from "../../atoms/Typography";
 
 const Errors = ({ errorCounter }) => {
   const { canvas } = useErrors(errorCounter);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       {canvas}
