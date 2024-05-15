@@ -15,16 +15,25 @@ const useWord = (): useWordProps => {
   const [censoredWord, setCensoredWord] = useState<string>();
   const [letters, setLetters] = useState<string[]>([]);
   const [errors, setErrors] = useState<number>(0);
-  // const [usedWords, setUsedWords] = useState([]);
+  const [usedWords, setUsedWords] = useState<string[]>([]);
 
   useEffect(() => nextWord(), []);
 
   const nextWord = () => {
-    const selectedWord = words[Math.round(Math.random() * (words.length - 1))];
-    setWord(selectedWord);
-    setCensoredWord("_ ".repeat(selectedWord.length).trimEnd());
-    setLetters([]);
-    setErrors(0);
+    if (words.length !== usedWords.length) {
+      const selectedWord = words[Math.round(Math.random() * (words.length - 1))];
+      const duplicatedWord = usedWords.find((used) => used === selectedWord);
+      if (!duplicatedWord) {
+        setWord(selectedWord);
+        setCensoredWord("_ ".repeat(selectedWord.length).trimEnd());
+        setLetters([]);
+        setErrors(0);
+        setUsedWords((prevUsed) => [...prevUsed, selectedWord]);
+      } else nextWord();
+    } else {
+      setUsedWords([]);
+      nextWord();
+    }
   };
 
   const selectLetter = (letter: string) => {

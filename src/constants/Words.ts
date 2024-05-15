@@ -21,6 +21,11 @@ const words: WordsArray = [
   "no",
   "despedido",
   "casa",
+  "raton",
+  "teclado",
+  "televisor",
+  "video",
+  "consola",
 ];
 
 export { words };
