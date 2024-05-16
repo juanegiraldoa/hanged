@@ -9,7 +9,7 @@ import Button from "./components/atoms/Button";
 import "./index.css";
 
 export const App = () => {
-  const { nextWord, selectLetter, letters, censoredWord, errors } = useWord();
+  const { selectLetter, letters, censoredWord, errors, resetGame } = useWord();
 
   useEffect(() => {
     const handleKeyPress = ({ key }) => {
@@ -26,7 +26,7 @@ export const App = () => {
         <Errors errorCounter={errors} />
       </div>
       <Board usedLetters={letters} selectLetter={selectLetter} />
-      <Button className="next-word" onClick={nextWord}>
+      <Button className="next-word" onClick={resetGame}>
         Next Word
       </Button>
     </div>

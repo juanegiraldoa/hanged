@@ -8,16 +8,32 @@ interface useWordProps {
   selectLetter: (letter: string) => boolean;
   letters: string[];
   errors: number;
+  resetGame: () => void;
 }
 
 const useWord = (): useWordProps => {
   const [word, setWord] = useState<string>();
-  const [censoredWord, setCensoredWord] = useState<string>();
+  const [censoredWord, setCensoredWord] = useState<string>("");
   const [letters, setLetters] = useState<string[]>([]);
   const [errors, setErrors] = useState<number>(0);
   const [usedWords, setUsedWords] = useState<string[]>([]);
+  const [streak, setStreak] = useState<number>(0);
 
   useEffect(() => nextWord(), []);
+
+  useEffect(() => {
+    if (errors === 6) {
+      alert(`Failed with streak of ${streak}`);
+      resetGame();
+    }
+  }, [errors]);
+
+  useEffect(() => {
+    if (!censoredWord.replace(/ /g, "").includes("_")) {
+      setStreak((s) => s + 1);
+      nextWord();
+    }
+  }, [censoredWord]);
 
   const nextWord = () => {
     if (words.length !== usedWords.length) {
@@ -30,10 +46,7 @@ const useWord = (): useWordProps => {
         setErrors(0);
         setUsedWords((prevUsed) => [...prevUsed, selectedWord]);
       } else nextWord();
-    } else {
-      setUsedWords([]);
-      nextWord();
-    }
+    } else resetGame();
   };
 
   const selectLetter = (letter: string) => {
@@ -53,7 +66,13 @@ const useWord = (): useWordProps => {
     }
   };
 
-  return { word, nextWord, censoredWord, selectLetter, letters, errors };
+  const resetGame = () => {
+    setUsedWords([]);
+    nextWord();
+    setStreak(0);
+  };
+
+  return { word, nextWord, censoredWord, selectLetter, letters, errors, resetGame };
 };
 
 export default useWord;
