@@ -11,6 +11,8 @@ const useErrors = (errorCounter: number): UseErrorsProps => {
     const canvas: any = document.getElementById("stickmanCanvas");
     const ctx = canvas.getContext("2d");
 
+    ctx.strokeStyle = "#FFFFFF";
+
     const drawHead = (): void => {
       ctx.beginPath();
       ctx.arc(100, 50, 20, 0, Math.PI * 2);

@@ -8,7 +8,7 @@ import Board from "./components/templates/Board";
 import Button from "./components/atoms/Button";
 import "./index.css";
 
-export const App = () => {
+function App() {
   const { selectLetter, letters, censoredWord, errors, resetGame } = useWord();
 
   useEffect(() => {
@@ -31,6 +31,6 @@ export const App = () => {
       </Button>
     </div>
   );
-};
+}
 
 render(<App />, document.getElementById("app"));
