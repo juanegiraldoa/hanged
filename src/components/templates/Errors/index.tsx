@@ -1,5 +1,5 @@
-import useErrors from "../../../hooks/useErrors";
-import Typography from "../../atoms/Typography";
+import useErrors from "@/hooks/useErrors";
+import Typography from "@/components/atoms/Typography";
 
 const Errors = ({ errorCounter }) => {
   const { canvas } = useErrors(errorCounter);

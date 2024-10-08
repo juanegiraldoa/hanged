@@ -1,5 +1,5 @@
-import { letters } from "../../../constants/Letters";
-import Button from "../../atoms/Button";
+import { letters } from "@/constants/Letters";
+import Button from "@/components/atoms/Button";
 
 interface BoardProps {
   usedLetters: string[];

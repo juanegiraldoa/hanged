@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { words } from "../constants/Words";
+import { words } from "@/constants/Words";
 
 interface useWordProps {
   word: string;
