@@ -1,17 +1,17 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 interface UseErrorsProps {
   canvas: any;
 }
 
 const useErrors = (errorCounter: number): UseErrorsProps => {
-  const canvas = <canvas id="stickmanCanvas" width="200" height="215" />;
+  const canvas = <canvas id='stickmanCanvas' width='200' height='215' />;
 
   useEffect(() => {
-    const canvas: any = document.getElementById("stickmanCanvas");
-    const ctx = canvas.getContext("2d");
+    const canvas: any = document.getElementById('stickmanCanvas');
+    const ctx = canvas.getContext('2d');
 
-    ctx.strokeStyle = "#FFFFFF";
+    ctx.strokeStyle = '#FFFFFF';
 
     const drawHead = (): void => {
       ctx.beginPath();

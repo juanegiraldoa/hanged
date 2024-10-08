@@ -1,6 +1,6 @@
 function Button({ children, ...rest }) {
   return (
-    <button className="btn" {...rest}>
+    <button className='btn' {...rest}>
       {children}
     </button>
   );

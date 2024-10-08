@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { words } from "@/constants/Words";
+import { words } from '@/constants/Words';
+import { useEffect, useState } from 'react';
 
 interface useWordProps {
   word: string;
@@ -13,7 +13,7 @@ interface useWordProps {
 
 const useWord = (): useWordProps => {
   const [word, setWord] = useState<string>();
-  const [censoredWord, setCensoredWord] = useState<string>("");
+  const [censoredWord, setCensoredWord] = useState<string>('');
   const [letters, setLetters] = useState<string[]>([]);
   const [errors, setErrors] = useState<number>(0);
   const [usedWords, setUsedWords] = useState<string[]>([]);
@@ -26,10 +26,10 @@ const useWord = (): useWordProps => {
       alert(`Failed with streak of ${streak}`);
       resetGame();
     }
-  }, [errors]);
+  }, [errors, streak]);
 
   useEffect(() => {
-    if (!censoredWord.replace(/ /g, "").includes("_")) {
+    if (!censoredWord.replace(/ /g, '').includes('_')) {
       setStreak((s) => s + 1);
       nextWord();
     }
@@ -41,7 +41,7 @@ const useWord = (): useWordProps => {
       const duplicatedWord = usedWords.find((used) => used === selectedWord);
       if (!duplicatedWord) {
         setWord(selectedWord);
-        setCensoredWord("_ ".repeat(selectedWord.length).trimEnd());
+        setCensoredWord('_ '.repeat(selectedWord.length).trimEnd());
         setLetters([]);
         setErrors(0);
         setUsedWords((prevUsed) => [...prevUsed, selectedWord]);
@@ -52,17 +52,17 @@ const useWord = (): useWordProps => {
   const selectLetter = (letter: string) => {
     if (!letters.find((l) => letter === l)) {
       setLetters((prevLetters) => [...prevLetters, letter]);
-      let splitedWord = word!.split("");
-      let splitedCensoredWord = censoredWord!.split(" ");
+      let splitedWord = word!.split('');
+      let splitedCensoredWord = censoredWord!.split(' ');
       const lettersInWord = splitedWord.filter((wl) => wl === letter);
       lettersInWord.forEach(() => {
         const letterIndex = splitedWord.findIndex((wl) => wl === letter);
-        splitedWord[letterIndex] = "_";
+        splitedWord[letterIndex] = '_';
         splitedCensoredWord[letterIndex] = letter;
       });
       if (lettersInWord.length === 0) setErrors(errors + 1);
-      setCensoredWord(splitedCensoredWord.join(" "));
-      return splitedCensoredWord.some((l) => l !== "_");
+      setCensoredWord(splitedCensoredWord.join(' '));
+      return splitedCensoredWord.some((l) => l !== '_');
     }
   };
 
