@@ -7,7 +7,7 @@ const Errors = ({ errorCounter }) => {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       {canvas}
-      <Typography Element="h3">Error counter: {errorCounter}</Typography>
+      <Typography Element="h3">Errors: {errorCounter}</Typography>
     </div>
   );
 };
