@@ -1,9 +1,9 @@
-function Button({ children, ...rest }) {
+import { button } from './button.css';
+
+export default function Button({ children, className = '', ...rest }) {
   return (
-    <button className='btn' {...rest}>
+    <button className={[className, button['primary']].join(' ').trim()} {...rest}>
       {children}
     </button>
   );
 }
-
-export default Button;

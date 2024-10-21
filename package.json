@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "hanged",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,14 +10,15 @@
     "lint": "biome lint ./"
   },
   "dependencies": {
-    "@master/css": "^1.37.8",
     "preact": "10.24.2"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
     "@preact/preset-vite": "2.9.1",
     "@types/node": "22.7.5",
-    "typescript": "5.6.2",
+    "@vanilla-extract/css": "1.16.0",
+    "@vanilla-extract/vite-plugin": "4.0.16",
+    "typescript": "5.6.3",
     "vite": "5.4.8"
   },
   "eslintConfig": {

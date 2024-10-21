@@ -1,13 +1,12 @@
-import useErrors from '@/hooks/useErrors';
-import Typography from '@/components/atoms/Typography';
+import { useError } from '@/hooks';
 
 const Errors = ({ errorCounter }) => {
-  const { canvas } = useErrors(errorCounter);
+  const { canvas } = useError(errorCounter);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {canvas}
-      <Typography Element='h3'>Errors: {errorCounter}</Typography>
+      <h3>Errors: {errorCounter}</h3>
     </div>
   );
 };
